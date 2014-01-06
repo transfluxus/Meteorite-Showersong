@@ -13,7 +13,7 @@ int groesse= 100;
 PGraphics pg;
 PGraphics pg2;
 
-//int minMass=0, maxMass=0;
+float minMass=0, maxMass=0;
 int numberOfMeteroids; // not used
 
 final int EUROPE=0, ASIA=1, AFRICA=2, AUSTRALIA=3, NORTH_AMERICA=4, SOUTH_AMERICA=5, SEA=6;
@@ -104,11 +104,11 @@ void loadMeteorite() {
     MeteoriteC met =   new MeteoriteC(row);
     meteorites.add(met);
     //    println(met.mass);
-    //    minMass = min(met.mass, minMass);
-    //    maxMass = max(met.mass, maxMass);
+    minMass = min(met.mass, minMass);
+    maxMass = max(met.mass, maxMass);
 
     //   println(met.year);
-    //    addMass(met.mass);
+    //      addMass(met.mass);
     //    println(met);
   }
   numberOfMeteroids = meteorites.size();
@@ -116,8 +116,7 @@ void loadMeteorite() {
 
   //  println("minMass: ", minMass, "maxMass:", maxMass);
   //  println("meteroites loaded");
-  //  getToneMasses();
-
+  //   getToneMasses();
   //  Collections.shuffle(meteorites);
   /*  for ( MeteoriteC met :meteorites)
    println(met); */
@@ -134,7 +133,7 @@ void loadMeteorite() {
 void loadEarth() {
   earth = loadImage("worldmap.png");
   // earth.resize((int)(earth.width*0.6f),(int)(earth.height*0.6f)); // WHY does this not work?!?
-  println(earth.width, earth.height);
+  //  println(earth.width, earth.height);
 }
 
 
@@ -166,6 +165,7 @@ int getContinent(PVector p) {
 }
 
 void keyPressed() {
- if(key=='s')
-saveFrame("screen-###.png"); 
+  if (key=='s')
+    saveFrame("screen-###.png");
 }
+

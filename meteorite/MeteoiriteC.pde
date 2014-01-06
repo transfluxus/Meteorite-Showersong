@@ -1,13 +1,13 @@
 class MeteoriteC {
 
   String name, rClass;
-  int year, id, mass;
-  float lati, longi;
+  int year, id ;
+  float lati, longi,mass;
 
   MeteoriteC(TableRow row) {
     //    name = row.getString("name");
     //   rClass = row.getString("recclass");
-    mass = row.getInt("mass_g");
+    mass = row.getFloat("mass_g");
     year = row.getInt("year");
     //  id = row.getInt("id");
     String latS = row.getString("latitude").replace(",", ".");
